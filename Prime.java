@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+//sqrt(n) solution
 class Prime {
 	
 	static boolean isPrime(int n)
