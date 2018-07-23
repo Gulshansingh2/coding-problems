@@ -5,28 +5,35 @@ import java.util.Scanner;
 public class EncodingMessage {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		
 		Scanner sc = new Scanner(System.in);
+		
+		//no. of test cases
 		int n = sc.nextInt();
 		
+		//result array
 		String res[] = new String[n];
 		
 		for(int j = 0; j<n; j++) {
 		
+			//length of input string
 			int len = sc.nextInt();
 			sc.nextLine();
 		
+			//input string
 			String str = sc.nextLine();
-			String encodStr = "";
+			String encodStr = ""; // encoded string
+			
+			//Swap 1st <->2nd, 3rd<->4th ......... 
 			for(int i = 0; i < str.length(); i = i+2) {
+				//for even length of string
 				if(str.length()%2 == 0) {
 					char a = str.charAt(i);
 					char b = a;
 					a = str.charAt(i+1);
 					encodStr += ""+a + b; 
 				}
+				//for odd length of string
 				else {
 					if(i < str.length() -1) {
 						char a = str.charAt(i);
@@ -42,8 +49,11 @@ public class EncodingMessage {
 			
 			}
 			
+			//temprorary string to hold partially encoded string
 			String tempStr = encodStr; 
 			encodStr = "";
+			
+			//replace a<->z, b<->y ..................., z<->a
 			for(int i = 0; i < str.length(); i++) {
 				int a =  tempStr.charAt(i);
 				
@@ -55,6 +65,7 @@ public class EncodingMessage {
 			res[j] = encodStr;
 		}
 		
+		//display resultant array
 		for(int j = 0; j < n; j++)
 			System.out.println(res[j]);
 	}	
