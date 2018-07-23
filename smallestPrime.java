@@ -2,6 +2,8 @@ package competitiveCoding;
 import java.util.Scanner;
  
 public class smallestPrime{
+
+  //function to find the prime no.	
  static boolean isPrime(int n)
 	    {
 	        if (n <= 1) return false;
@@ -19,21 +21,25 @@ public class smallestPrime{
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
+		//no. of Test cases
 		int T = sc.nextInt();
 		
 		System.out.println();
 		
+		//result array
 		int res[] = new int[T];
 				
 		for(int k = 0; k < T; k++) {
 			res[k] = -1;
 			
+			//Length of input array
 			int N = sc.nextInt();
 			
 			System.out.println();
 			
 			int[] a = new int[N];
 			
+			//flag to determine if array contains 1
 			boolean flag = false;
 			
 			
@@ -46,6 +52,8 @@ public class smallestPrime{
 			
 			if(flag == true) {
 				int j;
+				
+				//first prime no. in list
 				for(j = 0; j < N; j++) {
 					if(isPrime(a[j])) {
 							res[k] = a[j];
@@ -53,6 +61,7 @@ public class smallestPrime{
 						}
 					}
 				
+				//smallest prime no.
 				for(; j < N; j++) {
 					if(isPrime(a[j])) {
 						if(res[k] >= a[j]) {
@@ -64,6 +73,7 @@ public class smallestPrime{
 			
 		}
 			
+		//print results
 		for(int k = 0; k < T; k++) {
 			System.out.println(res[k]);
 		}
